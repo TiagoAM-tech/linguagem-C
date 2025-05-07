@@ -40,7 +40,7 @@ int main() {
     return 0;
 } */
 
-/*-------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------------------------------------------------
 CALCULADORA COM 2 CASOS
 
 #include <stdio.h>
@@ -77,44 +77,96 @@ int main() {
 
     return 0;
 } */
-
-
+--------------------------------------------------------------------------------------------------------------------------------------------------
+CALCULANDO SEXO MASC/FEM
 #include <stdio.h>
 
 int main() {
-    float altura, peso, pesoIdeal;
     int sexo;
+    float altura, pesoIdeal;
 
-    printf("OLÁ, BOM DIA!");
-
-    // Seleção do sexo
-    printf("\nQual o seu sexo?\n1: Mulher: \n2: Homem: ");
+    printf("=== CALCULADORA DE PESO IDEAL ===\n");
+    printf("Escolha o sexo a ser analisado:\n");
+    printf("1 - Mulher\n");
+    printf("2 - Homem\n");
+    printf("Digite sua opção: ");
     scanf("%d", &sexo);
 
-    // Validação do sexo
     if (sexo != 1 && sexo != 2) {
         printf("Opção inválida! Encerrando o programa.\n");
         return 1;
     }
 
-    printf("Digite o seu peso (kg): ");
-    scanf("%f", &peso);
-
-    printf("Digite a sua altura em metros: ");
+    printf("Digite sua altura (em metros): ");
     scanf("%f", &altura);
 
-    // Cálculo do peso ideal
+    if (altura <= 0) {
+        printf("Altura inválida! Encerrando o programa.\n");
+        return 1;
+    }
+
     if (sexo == 1) {
         pesoIdeal = (62.1 * altura) - 44.7;
-        printf("Sexo: Mulher\n");
+        printf("Sexo selecionado: Mulher\n");
     } else {
         pesoIdeal = (72.7 * altura) - 58;
-        printf("Sexo: Homem\n");
+        printf("Sexo selecionado: Homem\n");
     }
 
     printf("Seu peso ideal é: %.2f kg\n", pesoIdeal);
 
-   
-
     return 0;
 }
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+
+int main()
+{
+    int banco;
+    
+    printf ("Digite o tipo DE CONTA \n 1 Corrente \n 2 Poupança \n 3 Salario\n Opção digitada: ");
+    scanf ("%d", &banco);
+    
+    float saque, taxa, vf;
+    
+    printf ("Digite o valor que deseja sacar: \n");
+    scanf ("%f", &saque);
+    
+    switch (banco){
+        case 1: 
+        taxa = 2.50;
+        vf = saque - taxa;
+        printf ("O valor sacado é: R$%.2f", vf);
+        break;
+        case 2:
+        if (saque < 300){
+            taxa = 0.80;
+            vf = saque - taxa;
+            printf ("O valor sacado é: R$%.2f", vf);
+        }
+        else {
+            taxa = 2.00;
+            vf = saque - taxa;
+            printf ("O valor sacado é: R$%.2f", vf);
+        }
+        break;
+        case 3:
+        if (saque > 1000){
+            taxa = 1.50;
+            vf = saque - taxa;
+            printf ("O valor sacado é: R$%.2f", vf);
+        }
+        else {
+            printf ("O valor sacado é: R$%.2f", saque);
+        }
+        break;
+        
+        default: 
+            printf ("Banco invalido");
+            break;
+    }
+    return 0;
+}
+
