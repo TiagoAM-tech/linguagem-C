@@ -1,0 +1,120 @@
+/* #include <stdio.h>
+EXERCICIO DO PESO
+
+int main() {
+    float altura, peso;
+
+    printf("OLÁ, BOM DIA!");
+    printf("\nDigite o seu peso (kg): ");
+    scanf("%f", &peso);
+
+    printf("Digite a sua altura em metros: ");
+    scanf("%f", &altura);
+
+    if (altura < 1.20) {
+        if (peso <= 60) {
+            printf("Classificação A\n");
+        } else if (peso <= 90) {
+            printf("Classificação D\n");
+        } else {
+            printf("Classificação G\n");
+        }
+    } else if (altura >= 1.20 && altura <= 1.70) {
+        if (peso <= 60) {
+            printf("Classificação B\n");
+        } else if (peso <= 90) {
+            printf("Classificação E\n");
+        } else {
+            printf("Classificação H\n");
+        }
+    } else { // altura > 1.70
+        if (peso <= 60) {
+            printf("Classificação C\n");
+        } else if (peso <= 90) {
+            printf("Classificação F\n");
+        } else {
+            printf("Classificação I\n");
+        }
+    }
+
+    return 0;
+} */
+
+/*-------------------------------------------------------------------------
+CALCULADORA COM 2 CASOS
+
+#include <stdio.h>
+
+int main() {
+    int n1, n2, op, soma, quadrado;
+
+    printf("Menu\n");
+    printf("1. Somar dois números\n");
+    printf("2. Quadrado de um número\n");
+    printf("Digite sua opção: ");
+    scanf("%d", &op);
+
+    switch (op) {
+        case 1:
+            printf("Digite um número: ");
+            scanf("%d", &n1);
+            printf("Digite outro número: ");
+            scanf("%d", &n2);
+            soma = n1 + n2;
+            printf("Soma = %d\n", soma);
+            break;
+
+        case 2:
+            printf("Digite um número: ");
+            scanf("%d", &n1);
+            quadrado = n1 * n1;
+            printf("Quadrado = %d\n", quadrado);
+            break;
+
+        default:
+            printf("Opção inválida!\n");
+    }
+
+    return 0;
+} */
+
+
+#include <stdio.h>
+
+int main() {
+    float altura, peso, pesoIdeal;
+    int sexo;
+
+    printf("OLÁ, BOM DIA!");
+
+    // Seleção do sexo
+    printf("\nQual o seu sexo?\n1: Mulher: \n2: Homem: ");
+    scanf("%d", &sexo);
+
+    // Validação do sexo
+    if (sexo != 1 && sexo != 2) {
+        printf("Opção inválida! Encerrando o programa.\n");
+        return 1;
+    }
+
+    printf("Digite o seu peso (kg): ");
+    scanf("%f", &peso);
+
+    printf("Digite a sua altura em metros: ");
+    scanf("%f", &altura);
+
+    // Cálculo do peso ideal
+    if (sexo == 1) {
+        pesoIdeal = (62.1 * altura) - 44.7;
+        printf("Sexo: Mulher\n");
+    } else {
+        pesoIdeal = (72.7 * altura) - 58;
+        printf("Sexo: Homem\n");
+    }
+
+    printf("Seu peso ideal é: %.2f kg\n", pesoIdeal);
+
+   
+
+    return 0;
+}
